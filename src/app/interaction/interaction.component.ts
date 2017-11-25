@@ -19,4 +19,13 @@ export class InteractionComponent implements OnInit {
     this.user = new User('Jai', 11, 'J.Nagar');
   }
 
+  listenChildOutput(ev) {
+    console.log(ev);
+  }
+
+  listenChildOutputObject(ev: User) {
+    this.user = ev;
+    console.log(ev);
+  }
+
 }

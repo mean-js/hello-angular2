@@ -2,4 +2,5 @@
     interaction works! {{location}} <br> {{title}}
 </p>
 
-<app-child1 [title]="title" [location]="location" [user]="user"></app-child1>
+<app-child1 [user]="user" (childOutput)="listenChildOutput($event)" (childOutputObject)="listenChildOutputObject($event)">
+</app-child1>

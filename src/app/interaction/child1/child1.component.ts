@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../datamodel/user';
 
 @Component({
@@ -12,9 +12,15 @@ export class Child1Component implements OnInit {
   @Input() location: string;
   @Input() user: User;
 
+  @Output() childOutput = new EventEmitter();
+  @Output() childOutputObject: EventEmitter<User> = new EventEmitter<User>();
+
   constructor() { }
 
   ngOnInit() {
+    this.childOutput.emit('Hello From Child');
+
+    this.childOutputObject.emit(new User('ABCD', 11, 'BCCDDD'));
   }
 
 }
