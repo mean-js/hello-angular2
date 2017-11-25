@@ -6,15 +6,17 @@ import { AppComponent } from './app.component';
 import { UserService } from './dataservice/user.service';
 import { PersonService } from './dataservice/person.service';
 import { WeatherService } from './dataservice/weather.service';
+import { InteractionComponent } from './interaction/interaction.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InteractionComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule
   ],
   providers: [UserService, PersonService, WeatherService],
-  bootstrap: [AppComponent]
+  bootstrap: [InteractionComponent]
 })
 export class AppModule { }
