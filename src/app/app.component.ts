@@ -4,6 +4,7 @@ import {Person} from './datamodel/person';
 import {User} from './datamodel/user';
 import {PersonService} from './dataservice/person.service';
 import {UserService} from './dataservice/user.service';
+import { WeatherService } from './dataservice/weather.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import {UserService} from './dataservice/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private personService: PersonService, private userService: UserService) {}
+  constructor(private personService: PersonService, private userService: UserService, private weatherService: WeatherService) {}
 
   title = '';
   userList: User[] = [];
@@ -27,6 +28,9 @@ export class AppComponent implements OnInit {
     }).catch((err) => {
         console.log(err);
     });
+
+    // GET WEATHER DETAIL OF MUMBAI
+    this.weatherService.getWeatherDetialByCityName('mumbai');
   }
 
   selectUser(user) {
