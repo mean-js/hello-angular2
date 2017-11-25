@@ -4,7 +4,7 @@ import {User} from '../datamodel/user';
 
 @Injectable()
 export class UserService {
-  userList = [];
+  userList: User[] = [];
 
   constructor() { }
 

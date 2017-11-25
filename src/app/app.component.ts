@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {Person} from './datamodel/person';
 import {User} from './datamodel/user';
@@ -10,12 +10,24 @@ import {UserService} from './dataservice/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private personService: PersonService, private userService: UserService) {}
 
-  title = 'Affixus Systems Pvt Ltd.';
-  userList: User[] = this.userService.getUsers();
-  personList: Person[] = this.personService.getPersons();
+  title = '';
+  userList: User[] = [];
+  personList: Person[] = [];
+
+  ngOnInit() {
+    this.title = 'Affixus Systems Pvt Ltd.';
+    this.userList = this.userService.getUsers();
+
+    this.personService.getPersonsAsync()
+    .then((data: Person[]) => {
+        this.personList = data;
+    }).catch((err) => {
+        console.log(err);
+    });
+  }
 
   selectUser(user) {
     console.log(user);
