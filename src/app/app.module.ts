@@ -7,11 +7,13 @@ import { UserService } from './dataservice/user.service';
 import { PersonService } from './dataservice/person.service';
 import { WeatherService } from './dataservice/weather.service';
 import { InteractionComponent } from './interaction/interaction.component';
+import { Child1Component } from './interaction/child1/child1.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InteractionComponent,
+    Child1Component,
   ],
   imports: [
     BrowserModule, HttpClientModule
