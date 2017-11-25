@@ -21,6 +21,11 @@ export class AppComponent {
     console.log(user);
   }
 
+  createUser() {
+    const newUser = new User('PK', 1, 'Belapur');
+    this.userService.createUser(newUser);
+  }
+
   selectPerson(person) {
     console.log(person);
   }

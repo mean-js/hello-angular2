@@ -4,14 +4,18 @@ import {User} from '../datamodel/user';
 
 @Injectable()
 export class UserService {
+  userList = [];
 
   constructor() { }
 
   getUsers(): User[] {
-      const userList = [];
-      userList.push(new User('Jai', 1, 'J.Nagar'));
-      userList.push(new User('Jai', 1, 'J.Nagar'));
-      userList.push(new User('Jai', 1, 'J.Nagar'));
-      return userList;
+      this.userList.push(new User('Jai', 1, 'J.Nagar'));
+      this.userList.push(new User('Jai', 1, 'J.Nagar'));
+      this.userList.push(new User('Jai', 1, 'J.Nagar'));
+      return this.userList;
+  }
+
+  createUser(newUser: User) {
+    this.userList.push(newUser);
   }
 }
