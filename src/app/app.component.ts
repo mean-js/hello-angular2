@@ -31,6 +31,20 @@ export class AppComponent implements OnInit {
 
     // GET WEATHER DETAIL OF MUMBAI
     this.weatherService.getWeatherDetialByCityName('mumbai');
+
+    // WEATTHER API AS PROMISE
+    this.weatherService.getWeatherDetialByCityNameReturnAsPromise('mumbai')
+    .then((data) => {
+      console.log(data);
+    }).catch((err) => {
+      console.log(err);
+    });
+
+    // WEATTHER API AS OBSERABLE
+    this.weatherService.getWeatherDetialByCityNameReturnAsObservable('mumbai')
+    .subscribe(data => {
+      console.log(data);
+    });
   }
 
   selectUser(user) {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class WeatherService {
@@ -11,17 +12,17 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
+
   getWeatherDetialByCityName(cityName: string) {
     cityName = cityName || this.cityName;
 
-    const params = new HttpParams()
-    .set('q', cityName)
-    .set('units', this.tempUnits)
-    .set('appid', this.apiKey);
+    let params = new HttpParams();
+    params = params.set('q', 'mumbai');
+    params = params.set('units', this.tempUnits);
+    params = params.set('appid', this.apiKey);
 
     const options = {'params': params};
-    const tempUrl = 'http://api.openweathermap.org/data/2.5/weather?q=mumbai&units=metric&appid=7023923dd26a725da995c75b65864de5';
-    this.http.get<Response>(this.apiUrl, options).subscribe(
+    this.http.get(this.apiUrl, options).subscribe(
       (data) => {
           console.log(data);
       },
@@ -31,5 +32,33 @@ export class WeatherService {
       }
     );
   }
+
+
+  getWeatherDetialByCityNameReturnAsPromise(cityName: string): Promise<any> {
+    cityName = cityName || this.cityName;
+
+    let params = new HttpParams();
+    params = params.set('q', 'mumbai');
+    params = params.set('units', this.tempUnits);
+    params = params.set('appid', this.apiKey);
+
+    const options = {'params': params};
+    return this.http.get(this.apiUrl, options).toPromise();
+  }
+
+
+  getWeatherDetialByCityNameReturnAsObservable(cityName: string): Observable<any> {
+    cityName = cityName || this.cityName;
+
+    let params = new HttpParams();
+    params = params.set('q', 'mumbai');
+    params = params.set('units', this.tempUnits);
+    params = params.set('appid', this.apiKey);
+
+    const options = {'params': params};
+    return this.http.get(this.apiUrl, options);
+  }
+
+
 
 }
