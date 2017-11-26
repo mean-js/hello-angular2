@@ -2,6 +2,11 @@
     interaction works! {{location}} <br> {{title}}
 </p>
 
+<br>
+<br>
+<input type="text" [(ngModel)]="location" />
+<br>
+<br>
 
-<app-child1 [user]="user" (childOutput)="listenChildOutput($event)" (childOutputObject)="listenChildOutputObject($event)">
+<app-child1 [location]="location" [user]="user" (childOutput)="listenChildOutput($event)" (childOutputObject)="listenChildOutputObject($event)">
 </app-child1>

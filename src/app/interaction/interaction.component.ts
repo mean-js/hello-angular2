@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { User } from '../datamodel/user';
 
 @Component({
@@ -18,6 +18,7 @@ export class InteractionComponent implements OnInit {
     this.location = 'Belapur';
     this.user = new User('Jai', 11, 'J.Nagar');
   }
+
 
   listenChildOutput(ev) {
     console.log(ev);
