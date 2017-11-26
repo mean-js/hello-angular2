@@ -32,7 +32,6 @@ export class Child1Component implements OnInit, OnChanges {
       const prev = JSON.stringify(chng.previousValue);
       console.log(cur + ' ' + prev);
     }
-    console.log('onchanges');
   }
 
 }
