@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row jumbotron">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Panel heading without title</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6 jumbotron">
+
+            <div class="row">
+                <div class="col-sm-12" *ngFor="let item of userList">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">Panel heading {{item.uname}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 jumbotron">
+            <div class="panel panel-success">
+                <div class="panel-heading">Panel heading without title</div>
+            </div>
+        </div>
+    </div>
+</div>

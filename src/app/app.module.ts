@@ -10,6 +10,7 @@ import { WeatherService } from './dataservice/weather.service';
 import { InteractionComponent } from './interaction/interaction.component';
 import { Child1Component } from './interaction/child1/child1.component';
 import { ColorblueDirective } from './datadirective/colorblue.directive';
+import { BootstrapdemoComponent } from './bootstrapdemo/bootstrapdemo.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,12 @@ import { ColorblueDirective } from './datadirective/colorblue.directive';
     InteractionComponent,
     Child1Component,
     ColorblueDirective,
+    BootstrapdemoComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule
   ],
   providers: [UserService, PersonService, WeatherService],
-  bootstrap: [InteractionComponent]
+  bootstrap: [BootstrapdemoComponent]
 })
 export class AppModule { }
